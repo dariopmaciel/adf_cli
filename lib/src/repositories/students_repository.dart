@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 import '../models/student.dart';
 
-class StudentRepository {
+class StudentsRepository {
   Future<List<Student>> findAll() async {
     final studantsResult =
         await http.get(Uri.parse('http://10.0.0.106:8080/students'));
@@ -13,21 +13,21 @@ class StudentRepository {
       throw Exception();
     }
 //ao adicionar 'as List' o auto complete funciona melhor
-    final studentsData = jsonDecode(studantsResult.body) as List; //<=
+    final studantsData = jsonDecode(studantsResult.body) as List; //<=
 
-    return studentsData.map<Student>((student) {
+    return studantsData.map<Student>((student) {
       return Student.fromMap(student);
     }).toList();
   }
 
   Future<Student> findById(int id) async {
-    final studentResult =
+    final studentsResult =
         await http.get(Uri.parse('http://localhost:8080/students/$id'));
 
-    if (studentResult.statusCode != 200) {
+    if (studentsResult.statusCode != 200) {
       throw Exception();
     }
-    if (studentResult.body == '[]') {
+    if (studentsResult.body == '[]') {
       throw Exception();
     }
 
@@ -35,7 +35,7 @@ class StudentRepository {
     //     return Studant.fromMap(studant);
     // }).toList();]
 
-    return Student.fromJson(studentResult.body);
+    return Student.fromJson(studentsResult.body);
   }
 
   Future<void> insert(Student student) async {

@@ -1,4 +1,6 @@
 // import 'package:args/args.dart';
+
+import 'package:adf_cli/src/commands/students/studants_command.dart';
 import 'package:args/command_runner.dart';
 
 void main(List<String> arguments) {
@@ -15,25 +17,28 @@ void main(List<String> arguments) {
   // print('${argResult['template']}');
 
   CommandRunner("ADF CLI", "Descrição do ADF CLI")
-    ..addCommand(ExemploCommand())
+    ..addCommand(StudantsCommand())
+    // ..addCommand(ExemploCommand())
     ..run(arguments);
 }
 
-class ExemploCommand extends Command {
-  @override
-  String get description => "-> Exemplo de Comando";
 
-  @override
-  String get name => "exemplo";
+// Teste PARA chamado por // ..addCommand(ExemploCommand())
+// class ExemploCommand extends Command {
+//   @override
+//   String get description => "-> Exemplo de Comando";
 
-  ExemploCommand() {
-    argParser.addOption("template",
-        abbr: "t", help: "Envie template de criação do projeto.");
-  }
+//   @override
+//   String get name => "exemplo";
 
-  @override
-  void run() {
-    print(argResults?["template"]);
-    print("Executar qualquer coisa!!!");
-  }
-}
+//   ExemploCommand() {
+//     argParser.addOption("template",
+//         abbr: "t", help: "Envie template de criação do projeto.");
+//   }
+
+//   @override
+//   void run() {
+//     print(argResults?["template"]);
+//     print("Executar qualquer coisa!!!");
+//   }
+// }

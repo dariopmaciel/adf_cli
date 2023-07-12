@@ -1,18 +1,14 @@
-
-
 import 'dart:convert';
-
-
 
 import 'city.dart';
 import 'phone.dart';
 
 class Address {
-  final String street;
-  final int number;
-  final String zipCode;
-  final City city;
-  final Phone phone;
+  String street;
+  int number;
+  String zipCode;
+  City city;
+  Phone phone;
 
   Address({
     required this.street,
