@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 import '../models/student.dart';
 
-class StudentsRepository {
+class StudentRepository {
   Future<List<Student>> findAll() async {
     final studantsResult =
         await http.get(Uri.parse('http://10.0.0.106:8080/students'));
@@ -12,7 +12,7 @@ class StudentsRepository {
     if (studantsResult.statusCode != 200) {
       throw Exception();
     }
-//ao adicionar 'as List' o auto complete funciona melhor
+//ao adicionar 'as List' o auto-complete funciona melhor
     final studantsData = jsonDecode(studantsResult.body) as List; //<=
 
     return studantsData.map<Student>((student) {
@@ -40,9 +40,10 @@ class StudentsRepository {
 
   Future<void> insert(Student student) async {
     final response = await http.post(
-        Uri.parse('http://localhost:8080/students'),
-        body: student.toJson(),
-        headers: {'content type': 'application/json'});
+      Uri.parse('http://localhost:8080/students'),
+      body: student.toJson(),
+      headers: {'content type': 'application/json'},
+    );
     if (response.statusCode != 200) {
       throw Exception();
     }
@@ -50,17 +51,19 @@ class StudentsRepository {
 
   Future<void> upDate(Student student) async {
     final response = await http.put(
-        Uri.parse('http://localhost:8080/students/${student.id}'),
-        body: student.toJson(),
-        headers: {'content type': 'application/json'});
+      Uri.parse('http://localhost:8080/students/${student.id}'),
+      body: student.toJson(),
+      headers: {'content type': 'application/json'},
+    );
     if (response.statusCode != 200) {
       throw Exception();
     }
   }
 
   Future<void> deletebyId(int id) async {
-    final response =
-        await http.delete(Uri.parse('http://localhost:8080/students/$id'));
+    final response = await http.delete(
+      Uri.parse('http://localhost:8080/students/$id'),
+    );
     if (response.statusCode != 200) {
       throw Exception();
     }
