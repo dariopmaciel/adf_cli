@@ -11,6 +11,7 @@ class FindByIdCommand extends Command {
   @override
   String get name => 'byId';
 
+//adicionado argumentos para -h
   FindByIdCommand(this.studentRepository) {
     argParser.addOption('id', help: 'Student Id', abbr: 'i');
   }
