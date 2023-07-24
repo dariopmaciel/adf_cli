@@ -36,7 +36,7 @@ class Student {
   }
 
   String toJson() => jsonEncode(toMap());
-  
+
   factory Student.fromMap(Map<String, dynamic> map) {
     return Student(
       id: map['id'] ?? 0,
@@ -51,6 +51,5 @@ class Student {
     );
   }
 
-  factory Student.fromJson(String json) =>
-      Student.fromMap(jsonDecode(json));
+  factory Student.fromJson(String json) => Student.fromMap(jsonDecode(json));
 }

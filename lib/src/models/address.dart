@@ -33,8 +33,8 @@ class Address {
       street: map['street'] ?? '',
       number: map['number'] ?? 0,
       zipCode: map['zipCode'] ?? '',
-      city: City.fromMap(map['city'] as Map<String, dynamic>),
-      phone: Phone.fromMap(map['phone'] ?? Map<String, dynamic>),
+      city: City.fromMap(map['city'] ?? <String, dynamic>{}),
+      phone: Phone.fromMap(map['phone'] ?? <String, dynamic>{}),
     );
   }
 
