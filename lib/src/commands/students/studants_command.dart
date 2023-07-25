@@ -1,5 +1,6 @@
 import 'package:args/command_runner.dart';
 import '../../repositories/student_repository.dart';
+import 'sub_commands/delete_command.dart';
 import 'sub_commands/find_all_command.dart';
 import 'sub_commands/find_by_id_command.dart';
 import 'sub_commands/insert_command.dart';
@@ -20,6 +21,6 @@ class StudantsCommand extends Command {
     addSubcommand(FindByIdCommand(studantRepository));
     addSubcommand(InsertCommand(studantRepository));
     addSubcommand(UpdateCommand(studantRepository));
-    // addSubcommand(DeleteCommand(studantRepository));
+    addSubcommand(DeleteCommand(studantRepository));
   }
 }
