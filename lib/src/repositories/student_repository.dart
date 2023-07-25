@@ -53,7 +53,7 @@ class StudentRepository {
     final response = await http.put(
       Uri.parse('http://localhost:8080/students/${student.id}'),
       body: student.toJson(),
-      headers: {'content type': 'application/json'},
+      headers: {'Content-Type': 'application/json', 'Charset': 'utf-8'},
     );
     if (response.statusCode != 200) {
       throw Exception();
